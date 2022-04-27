@@ -1,4 +1,4 @@
-#Azure AD Setup for Authentication
+# Azure AD Setup for Authentication
 
 ## What is Azure Active Directory (AD)
 ### Azure AD Tenant
