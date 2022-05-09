@@ -98,7 +98,7 @@ Grant the permission as under
 Finally **Grant Admin Consent** and click **Ok**
 ![3  Grant Admin consent](https://user-images.githubusercontent.com/100778209/167427464-e321f8d3-0f47-47d2-baa7-38a410261267.jpg)
 
-## Step No. 5: Token Configurations
+## Step No. 6: Token Configurations
 Select the **App Registrations** from the Active Directory main menu
 Select **BBBankUI** Application
 Select **Token Configuration** from the left menu bar
