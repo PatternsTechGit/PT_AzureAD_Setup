@@ -22,10 +22,11 @@ Azure AD B2C is a separate service from Azure Active Directory (Azure AD). It is
 
 Developers can use Azure AD business-to-business APIs to customize the invitation process or write applications like self-service sign-up portals.
 ## About this exercise
-Previously we have
+Previously we have developed
+- RESTful Web API using .NET 6
+- Client Application using Angular
 
-In this exercise we will
-
+In this exercise we will configure the Azure Active Dicrectory Tenant to use with our applications.
 
 ## Step No. 1: App Registration
 Login to the [Azure Portal](https://portal.azure.com/) using the credentials.
@@ -47,14 +48,62 @@ Finally, the registered apps in the active directory listings;
 ![3  Registrered Apps](https://user-images.githubusercontent.com/100778209/167419336-9bb49245-b1b3-43d2-bf05-5c4a41be1aeb.jpg)
 
 
-## Step No. 2:
+## Step No. 2: Application Role(s) Registration
+Click the "App Registrations" from the main menu of Azure Active Directory.
 
-## Step No. 3:
+Since, our API will implement the authorization for the roles at endpoints. So, select the BBBankAPI from the applications we have already registered. 
 
-## Step No. 4:
+Select the **App Roles** from the navigation menu (left side bar)
 
-## Step No. 5:
+![1  App roles](https://user-images.githubusercontent.com/100778209/167421556-85769a60-53eb-4644-bde1-bfc0fa221bb3.jpg)
 
-## Step No. 6:
+Click **Create App Role** button to create a new **App Role**.
 
-## Step No. 7:
+Enter all the required details as in case of **Account Holder** following settings are entered.
+![2  Create App role](https://user-images.githubusercontent.com/100778209/167422769-ff2e0518-7732-4420-8569-38cd94196061.jpg)
+
+Similarly create another App role **Bank Manager** for this application (BBBankAPI)
+
+## Step No.3: Assing Role(s) to User(s)
+Go to **Enterprise Applications** from Active Directory AD sidebar menu
+Select the BBBankAPI from the application listing as we have roles in this application
+Click the **Users and Groups** from the left menu bar
+
+Then **select user** and then select **app role** from the list
+![image](https://user-images.githubusercontent.com/100778209/167428713-d1f97a80-5138-4e35-bb0d-0025c49a9754.png)
+
+After assigning role to a user we get the result
+![image](https://user-images.githubusercontent.com/100778209/167429404-8e5b3ed5-42d8-4d11-a23e-d6765d4c30a4.png)
+
+## Step No. 4: Expose the API (BBBankAPI)
+Click on the **Expose API** from left side bar.
+
+Create a new scope by clicking on **Add a Scope**
+![2  Add a scope](https://user-images.githubusercontent.com/100778209/167425146-07ca1642-b6a7-4ded-8f8b-583c73e6d8ac.jpg)
+
+Add a client application to the scope for the API to grant access
+![image](https://user-images.githubusercontent.com/100778209/167425654-aaa1fc90-6671-41a4-bb18-1a5818ee7388.png)
+
+## Step No. 5: Grant Permissions to UI (BBBank UI)
+Go to App Registrations and select the BBBankUI
+Select the **API Permissions** from the sidebar menu.
+Click **Add a Permission**
+Select the API by clicking the **My API** tab
+![image](https://user-images.githubusercontent.com/100778209/167426913-b1206129-fef7-4c19-b565-aaa8da2ac1d0.png)
+
+Select the **BBBankAPI** from the listing
+Grant the permission as under
+![image](https://user-images.githubusercontent.com/100778209/167427137-4bf5047a-80fe-46d5-bad3-aff3a3021d8c.png)
+
+Finally **Grant Admin Consent** and click **Ok**
+![3  Grant Admin consent](https://user-images.githubusercontent.com/100778209/167427464-e321f8d3-0f47-47d2-baa7-38a410261267.jpg)
+
+## Step No. 5: Token Configurations
+Select the **App Registrations** from the Active Directory main menu
+Select **BBBankUI** Application
+Select **Token Configuration** from the left menu bar
+Click on the **Add Optional Cliam** and select **Access Token**
+
+![image](https://user-images.githubusercontent.com/100778209/167430278-b38901b9-0508-4e19-998f-54fcef57dfa1.png)
+
+From this list we have to select the claims which will be available in our **access token**.
